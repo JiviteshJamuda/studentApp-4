@@ -33,6 +33,8 @@ export default class WelcomeScreen extends React.Component {
              contact   : this.state.contact,
              email_id  : this.state.emailId,
              user_type : this.state.userType,
+             total_marks : 0,
+             recieved_marks : 0,
            })
            return  Alert.alert(
                 'User Added Successfully',

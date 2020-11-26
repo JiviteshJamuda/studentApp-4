@@ -3,6 +3,7 @@ import { Text, View, StyleSheet, TouchableOpacity, ScrollView, FlatList, Button 
 import db from "../config";
 import firebase from "firebase";
 import { Header, Icon, ListItem } from "react-native-elements";
+import MyHeader from "../components/MyHeader";
 
 export default class MarkedAssignments extends React.Component {
     constructor(props){
@@ -16,7 +17,9 @@ export default class MarkedAssignments extends React.Component {
     }
     
     getAllMarkedAssignments = async()=>{
-        this.requestRef = await db.collection("all_answers").where("student_email_id", "==", this.state.emailId)
+        this.requestRef = await db.collection("all_answers")
+        .where("student_email_id", "==", this.state.emailId)
+        .where("marked", "==", true)
         .onSnapshot(snapshot=>{
             this.requestRef = db.collection("all_answers").where("marks", "!=", null)
             .onSnapshot(snapshot=>{
@@ -59,13 +62,7 @@ export default class MarkedAssignments extends React.Component {
         return(
             <ScrollView style={{flex:1}}>
                 <View>
-                    <Header
-                        placement="left"
-                        leftComponent={<Icon name="menu" onPress={()=>{this.props.navigation.toggleDrawer()}} color="yellow"/>}
-                        centerComponent={{text:"Marked Assignments", style:{fontSize:25, fontWeight:"bold", color:"white"}}} 
-                        backgroundColor="purple"
-                    />
-                    
+                    <MyHeader title="Marked Assignments" navigation={this.props.navigation} />
                     {
                         this.state.allMarkedAssignments === [] ?
                         (

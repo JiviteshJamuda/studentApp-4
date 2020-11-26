@@ -3,6 +3,7 @@ import { Text, View, StyleSheet, TouchableOpacity, FlatList, ScrollView } from "
 import { Header, Icon, ListItem } from "react-native-elements";
 import firebase from "firebase";
 import db from "../config";
+import MyHeader from "../components/MyHeader";
 
 export default class AllAssignments extends React.Component {
     constructor(props){
@@ -54,12 +55,7 @@ export default class AllAssignments extends React.Component {
         return(
             <ScrollView style={{flex:1}}>
                 <View>
-                    <Header
-                        placement="left"
-                        leftComponent={<Icon name="menu" onPress={()=>{ this.props.navigation.toggleDrawer() }} color="yellow"/>}
-                        centerComponent={{text:"All Assignments", style:{fontSize:25, fontWeight:"bold", color:"white"}}} 
-                        backgroundColor="purple"
-                    />
+                    <MyHeader title="All Assignments" navigation={this.props.navigation} />
                     <FlatList
                         data={this.state.allAssignments}
                         keyExtractor={this.keyExtractor}

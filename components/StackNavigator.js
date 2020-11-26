@@ -6,6 +6,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 import ViewAssignmentDetails from "../screens/ViewAssignmentDetails";
 import ViewFeedback from "../screens/ViewFeedback";
 import { DrawerNavigator } from "./DrawerNavigator";
+import NotificationDetails from "../screens/NotificationDetails"
 
 export const StackNavigator = createStackNavigator({
   Home : {
@@ -25,7 +26,13 @@ export const StackNavigator = createStackNavigator({
     navigationOptions : {
       headerShown : false
     }
-  }
+  },
+  NotificationDetails : {
+    screen : NotificationDetails,
+    navigationOptions : {
+      headerShown : false
+    }
+  },
 },
   {
     initialRouteName: 'Home'

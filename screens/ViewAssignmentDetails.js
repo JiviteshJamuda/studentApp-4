@@ -53,7 +53,8 @@ export default class ViewAssignmentDetails extends React.Component {
                 "feedback" : null,
                 "question" : this.state.question,
                 "subject" : this.state.subject,
-                "total_marks" : this.state.totalMarks
+                "total_marks" : this.state.totalMarks,
+                "marked" : false,
             })
             
             ToastAndroid.showWithGravityAndOffset(
