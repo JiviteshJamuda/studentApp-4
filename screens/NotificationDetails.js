@@ -12,6 +12,7 @@ export default class NotificationDetails extends React.Component {
             feedback : this.props.navigation.getParam("details")["feedback"],
             message : this.props.navigation.getParam("details")["message"],
             docId : "",
+            question : this.props.navigation.getParam("details")["question"],
         };
         this.requestRef = null;
     }
@@ -43,7 +44,8 @@ export default class NotificationDetails extends React.Component {
                     backgroundColor="purple"
                 />
                 <Card title={this.state.message} >
-                    <Text style={{fontSize:19, fontWeight:"bold"}}>feedback provided : {this.state.feedback}</Text>
+                    <Text style={{fontSize:19, fontWeight:"bold", marginTop:10}}>feedback provided : {this.state.feedback}</Text>
+                    <Text style={{fontSize:19, fontWeight:"bold", marginTop:10}}>Assignment : {this.state.question}</Text>
                     <TouchableOpacity style={styles.button} 
                     onPress={()=>{
                         this.markAsRead()

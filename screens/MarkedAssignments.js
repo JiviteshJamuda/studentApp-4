@@ -19,7 +19,6 @@ export default class MarkedAssignments extends React.Component {
     getAllMarkedAssignments = async()=>{
         this.requestRef = await db.collection("all_answers")
         .where("student_email_id", "==", this.state.emailId)
-        .where("marked", "==", true)
         .onSnapshot(snapshot=>{
             this.requestRef = db.collection("all_answers").where("marks", "!=", null)
             .onSnapshot(snapshot=>{

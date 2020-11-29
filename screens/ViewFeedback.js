@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet, Text, TouchableOpacity, ToastAndroid, Alert, ScrollView } from "react-native";
+import { View, StyleSheet, Text, TouchableOpacity, ToastAndroid, Alert, ScrollView, Button } from "react-native";
 import firebase from "firebase";
 import db from "../config";
 import { Header, Card, Icon } from "react-native-elements";
@@ -13,7 +13,7 @@ export default class ViewFeedback extends React.Component{
             totalMarks : this.props.navigation.getParam("details")["total_marks"],
             question : this.props.navigation.getParam("details")["question"],
             subject : this.props.navigation.getParam("details")["subject"],
-            answer : this.props.navigation.getParam("details")["answer"]
+            answer : this.props.navigation.getParam("details")["answer"],
         }
     }
 
